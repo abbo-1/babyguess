@@ -2,7 +2,7 @@
 
 #title {
   text-align: center;
-  font-size: 1.5em;
+  font-size: 1.0em;
 }
 
 #mainThing {
@@ -65,36 +65,39 @@
   max-height: 85%;
 }
 
-/* CSS */
-.button {
-  font-family: 'Patua One';
-  min-width: 100%;
-  height: 300px;
-  max-height: 100%;
-  border: none;
-  outline: none;
-  color: rgb(0, 0, 0);
-  background: rgb(244, 237, 237);
-  cursor: pointer;
-  position: relative;
-  z-index: 0;
-  border-radius: 10px;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
+/* BUTTON */
+#btn{
+    width: 150px;
+    height: 50px;
+    border: 2px black solid;
+    outline: none;
+    background: #6c44ef;
+    color: #fff;
+    font-size: 22px;
+    border-radius: 40px;
+    text-align: center;
+    box-shadow: 0 6px 20px -5px rgba(255, 117, 117, 0.4);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
 }
 
-.button:hover {
+#btn:hover{
+  background: #957de5;
+  border: 2px black solid;
+}
+
+#enterName{
+  font-size: 1.5rem;
   color: red;
-  background:#3453f0
+}
+
+#space{
+  height:20px;
 }
 
 #center{
   justify-content: center
-}
-
-#space {
-  width: 5px;
 }
 
 .genderBtn {
@@ -102,6 +105,10 @@
   height: 300px;
   max-height: 100%;
   margin: 1%;
+  -webkit-user-select: none; /* Safari */        
+-moz-user-select: none; /* Firefox */
+-ms-user-select: none; /* IE10+/Edge */
+user-select: none; /* Standard */
 }
 
 .genderBtn:hover {
@@ -118,4 +125,13 @@
 
 #boyBtn:hover {
   background: rgb(255, 252, 155);
+}
+
+.genderBtn:disabled {
+  pointer-events: none;
+}
+
+.genderBtn:disabled:hover {
+  pointer-events: none;
+  background: none;
 }
