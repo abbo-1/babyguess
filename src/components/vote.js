@@ -10,8 +10,9 @@ import {useState, useEffect} from 'react'
 import LinearProgress from '@mui/material/LinearProgress';
 
 
-function Vote({handleButtonClick}){
+function Vote({ handleButtonClick, data, setData }){
 
+  //
   const [open, setOpen] = useState(false);
   const [disabled, setDisabled] = useState(false);
 
@@ -24,31 +25,9 @@ function Vote({handleButtonClick}){
     setTimeout(() => handleClose(), 4000)
   }
 
-    // function testBoy() {
-    //     console.log("boy vote")
-    //     setOpen(true)
-    // }
-
-    // function testGirl() {
-    //     console.log("girl vote")
-    //     setOpen(true);
-    // }
-
-    // const voteResponse = (gender) => {
-    //   if (gender === "boy") {
-    //     console.log("boy vote")
-    //     setOpen(true);
-    //   } else if (gender === "girl") {
-    //     console.log("girl vote")
-    //     setOpen(true);
-    //   }
-
-    // }
-
     const handleClickOpen = () => {
       setOpen(true);
       setDisabled(true);
-      console.log("boy vote")
     };
 
       const [seconds, setSeconds] = useState(0);

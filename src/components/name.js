@@ -59,22 +59,26 @@ function Name({ handleButtonClick, data, setData }){
       const checkFields = () => {
         if (firstNameEmpty || lastNameEmpty === true) {
           console.log('empty') 
-          console.log('hello it is ' + {setData})
           handleModalOpen();
         } else {
           handleButtonClick();
-
         }
-        console.log('ssss ' + nameValues.firstName)
       }
 
       //CHECK NAME
+      // const nameDeposit = () => {
+      //   const firstName = nameValues.firstName;
+      //   const lastName = nameValues.lastName;
+      //   // setData({ firstName: firstName }, {lastName : lastName});
+      //   console.log('nameDeposit detects ' + firstName + ' and ' + lastName)
+      // }
+
       const nameDeposit = () => {
         const firstName = nameValues.firstName;
         const lastName = nameValues.lastName;
-        // setData({ firstName: firstName }, {lastName : lastName});
-        console.log('nameDeposit detects ' + firstName + ' and ' + lastName)
-        console.log('nameDeposit also detects ' + {data} + ' and ' + {setData})
+        console.log('nameDeposit detects first is ' + firstName + ' second is ' + lastName)
+        setData({firstName: firstName, lastName: lastName })
+        console.log(data)
       }
 
     return(

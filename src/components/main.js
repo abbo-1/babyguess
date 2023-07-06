@@ -14,6 +14,7 @@ function Main() {
   
     const handleButtonClick = () => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % components.length);
+      console.log('Data is currently ' + data.firstName + ' ' + data.lastName + ' who is voting that baby is a ' + data.vote + ' for reason number ' + data.reason)
     };
   
     const ActiveComponent = components[activeIndex];
