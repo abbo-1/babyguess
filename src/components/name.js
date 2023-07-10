@@ -1,6 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
-import {useState} from 'react'
+import {useState, useEffect} from 'react'
 import Row from 'react-bootstrap/Row';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
@@ -34,6 +34,12 @@ function Name({ handleButtonClick, data, setData }){
         setNameValues({ ...nameValues, [e.target.name]: e.target.value });
       };
 
+      useEffect(() => {
+        console.log('nameDeposit detects first is ' + firstNameField + ' second is ' + lastNameField)
+        setData({...data, firstName: firstNameField,  lastName: lastNameField})
+        // setData({ ...data, lastName: lastNameField})
+      })
+
       //MODAL STATE AND OPEN/CLOSE FUNCTIONS
       const [openModal, setmodalOpen] = useState(false);
       const handleModalOpen = () => setmodalOpen(true);
@@ -52,33 +58,30 @@ function Name({ handleButtonClick, data, setData }){
         p: 4,
       };
 
-      //CHECK FIELDS
+      //DEPOSIT FIRST AND LAST NAME
+      const firstNameField = nameValues.firstName;
+      const lastNameField = nameValues.lastName;
+
+      // const nameDeposit = () => {
+      //   console.log('nameDeposit detects first is ' + firstNameField + ' second is ' + lastNameField)
+      //   // setData({firstName: firstNameField, lastName: lastNameField })
+      //   setData({firstName: firstNameField, lastName: lastNameField })
+      //   console.log('do you see this?')
+      //   console.log(data)
+      // }
+
+      //CHECK FIELDS TO SEE IF EMPTY
       const firstNameEmpty = nameValues.firstName === ''
       const lastNameEmpty = nameValues.lastName === ''
 
-      const checkFields = () => {
+      const checkFieldsAndSendNames = () => {
         if (firstNameEmpty || lastNameEmpty === true) {
           console.log('empty') 
           handleModalOpen();
         } else {
+          // nameDeposit();
           handleButtonClick();
         }
-      }
-
-      //CHECK NAME
-      // const nameDeposit = () => {
-      //   const firstName = nameValues.firstName;
-      //   const lastName = nameValues.lastName;
-      //   // setData({ firstName: firstName }, {lastName : lastName});
-      //   console.log('nameDeposit detects ' + firstName + ' and ' + lastName)
-      // }
-
-      const nameDeposit = () => {
-        const firstName = nameValues.firstName;
-        const lastName = nameValues.lastName;
-        console.log('nameDeposit detects first is ' + firstName + ' second is ' + lastName)
-        setData({firstName: firstName, lastName: lastName })
-        console.log(data)
       }
 
     return(
@@ -93,7 +96,7 @@ function Name({ handleButtonClick, data, setData }){
             label="First Name"
             name="firstName"
             variant="outlined"
-            value={nameValues.firstName}
+            value={firstNameField}
             onChange={handleChange}
             inputProps={{
             style: {
@@ -111,7 +114,7 @@ function Name({ handleButtonClick, data, setData }){
             id="outlined-basic" 
             label="Last Name"
             name="lastName"
-            value={nameValues.lastName}
+            value={lastNameField}
             onChange={handleChange}
             inputProps={{
             style: {
@@ -125,8 +128,7 @@ function Name({ handleButtonClick, data, setData }){
 
         <Row>
         <button id="btn"  onClick={() => {
-          nameDeposit()
-          checkFields();
+          checkFieldsAndSendNames();
         }}>
         SUBMIT
         </button>

@@ -39,6 +39,7 @@ function Vote({ handleButtonClick, data, setData }){
   //LOG BOY VOTE
   function logVoteBoy() {
     console.log('Boy Vote')
+    setData({...data, vote: 'Boy'})
     handleClickOpen()
     setTimeout(() => handleClose(), 4000)
   }
@@ -46,6 +47,7 @@ function Vote({ handleButtonClick, data, setData }){
   //LOG GIRL VOTE
   function logVoteGirl() {
     console.log('Girl Vote')
+    setData({...data, vote: 'Girl'})
     handleClickOpen()
     setTimeout(() => handleClose(), 4000)
   }
@@ -57,7 +59,7 @@ function Vote({ handleButtonClick, data, setData }){
             onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
 	          <DialogContent>
 		          <DialogContentText id="alert-dialog-description"> 
-              Thank you! 
+              Thank you {data.firstName}! 
               <br /> 
               Your vote has been registered. 
             </DialogContentText>
@@ -67,16 +69,31 @@ function Vote({ handleButtonClick, data, setData }){
 	          </DialogContent>
           </Dialog>
 
-
           <Row>
 	          <Col sm={12} md={6}>
-	            <button id="boyBtn" className="genderBtn" disabled={disabled} onClick={logVoteBoy}>BOY</button>
+	            <button
+                id="boyBtn" 
+                className="genderBtn" 
+                disabled={disabled} 
+                onClick={logVoteBoy}>
+                BOY
+              </button>
 	          </Col>
 	          <Col sm={12} md={6}>
-	            <button id="girlBtn" className="genderBtn" disabled={disabled} onClick={logVoteGirl}>GIRL</button>
+	            <button 
+                id="girlBtn" 
+                className="genderBtn"
+                disabled={disabled} 
+                onClick={logVoteGirl}>
+                GIRL
+              </button>
 	          </Col>
 	        <Row>
-		          <button id="btn" onClick={handleButtonClick}>NEXT </button>
+		          <button 
+                id="btn" 
+                onClick={handleButtonClick}>
+                NEXT 
+              </button>
 	        </Row>
           </Row>  
         </div> 

@@ -1,6 +1,7 @@
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import Divider from '@mui/material/Divider';
 import {useState} from 'react'
 import Vote from './vote.js'
 import Name from './name.js'
@@ -14,7 +15,8 @@ function Main() {
   
     const handleButtonClick = () => {
       setActiveIndex((prevIndex) => (prevIndex + 1) % components.length);
-      console.log('Data is currently ' + data.firstName + ' ' + data.lastName + ' who is voting that baby is a ' + data.vote + ' for reason number ' + data.reason)
+      console.log({...data})
+      // console.log('Data is currently ' + data.firstName + ' ' + data.lastName + ' who is voting that baby is a ' + data.vote + ' for reason number ' + data.reason)
     };
   
     const ActiveComponent = components[activeIndex];
@@ -36,6 +38,7 @@ return(
     Girl or Boy?
     </p>
     </Row>
+    <Divider />
     <Row>
     <Col>
     <ActiveComponent 
