@@ -6,7 +6,7 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import NameGif from '../images/whatname.gif'
-import { cyan } from '@mui/material/colors';
+import { cyan } from '@mui/material/colors'
 
 function Name({ handleButtonClick, data, setData }){
     const theme = createTheme({
@@ -36,8 +36,7 @@ function Name({ handleButtonClick, data, setData }){
 
       useEffect(() => {
         console.log('nameDeposit detects first is ' + firstNameField + ' second is ' + lastNameField)
-        setData({...data, firstName: firstNameField,  lastName: lastNameField})
-        // setData({ ...data, lastName: lastNameField})
+        setData({...data, firstName: firstNameField, lastName: lastNameField})
       })
 
       //MODAL STATE AND OPEN/CLOSE FUNCTIONS

@@ -8,7 +8,6 @@ import Name from './name.js'
 import Welcome from './welcome.js'
 import Why from './why.js'
 
-
 function Main() {
     const components = [Welcome, Name, Vote, Why];
     const [activeIndex, setActiveIndex] = useState(0);
@@ -27,6 +26,18 @@ function Main() {
       vote:'',
       reason:'',
     })
+
+  //   const fetchData = async () => {
+  //     const newData = fetch('/hello', {
+  //     method: 'GET',
+  //     headers: {
+  //       'butter'
+  //     }
+  //   })
+  //   .then(res => res.json())
+  //   console.log(newData);
+  //   setReturnedData()
+  // }
 
 return(
     <div id="mainThing">
