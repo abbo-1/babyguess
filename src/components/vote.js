@@ -65,25 +65,38 @@ function Vote({ handleButtonClick, data, setData }){
 
   //CHECK IF BUTTON PUSHED
   const didTheyPushTheButton = (gender) => {
-    if (wasPushed === false) {
-      handleModalOpen();
-    } else {
-      if (gender === 'girl') {
-        console.log('Girl Vote')
-        setData({...data, vote: 'Girl'})
-        handleClickOpen()
-        setTimeout(() => handleClose(), 4000)
-      } else if (gender === 'boy') {
-          console.log('Boy Vote')
-          buttonPushed()
-          setData({...data, vote: 'Boy'})
-          handleClickOpen()
-          setTimeout(() => handleClose(), 4000)
-          console.log(wasPushed)
-      }
-      handleButtonClick();
-    }
+    // if (wasPushed === false) {
+    //   handleModalOpen();
+    // } else {
+    //   console.log('you are here cunt')
+    // }}
+    switch(wasPushed) {
+      case 'false': 
+      return handleModalOpen()
+      case 'true': 
+      return console.log('hi')
+    default: 
+    return 
   }
+  }
+  
+
+
+  //   } else if (wasPushed === true) {
+  //     if (gender === 'girl') {
+  //       console.log('Girl Vote')
+  //       // setData({...data, vote: 'Girl'})
+  //       // handleClickOpen()
+  //       // setTimeout(() => handleClose(), 4000)
+  //     } else {
+  //         console.log('Boy Vote')
+  //     }
+  //     handleButtonClick();
+  //   } else {
+  //     console.log('ERROR: Something went wrong')
+  //   }
+  // }
+
 
   //LOG BOY VOTE
   function logVoteBoy() {
