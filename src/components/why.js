@@ -1,22 +1,51 @@
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
-import Col from 'react-bootstrap/Col';
 import {useState} from 'react'
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
-import FormControl from '@mui/material/FormControl';
-import FormLabel from '@mui/material/FormLabel';
+import Modal from '@mui/material/Modal';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
+import forgot from '../images/forgotsomething.gif'
 
 function Why({ handleButtonClick, data, setData }){
 
+    //MODAL STATE AND OPEN/CLOSE FUNCTIONS
+  const [openModal, setmodalOpen] = useState(false);
+  const handleModalClose = () => setmodalOpen(false);
+  const [wasSelected, setWasSelected] = useState(false);
 
+  const style = {
+    position: 'absolute',
+    top: '50%',
+    left: '50%',
+    transform: 'translate(-50%, -50%)',
+    width: 600,
+    bgcolor: 'background.paper',
+    border: '2px solid #000',
+    boxShadow: 24,
+    borderRadius: '10%',
+    p: 4,
+  };
 
+  //CHECK IF BUTTON WAS PUSHED
+  function didTheyMakeASelection() {
+    if (wasSelected === true) {
+      handleButtonClick()
+    } else {
+      console.log(wasSelected)
+      console.log('hi')
+      setmodalOpen(true)
+    }
+  }
+  
     function logReasonVote(voteNum) {
         console.log('logReasonVote function found you selected option ' + voteNum)
+        setWasSelected(true)
         setData({...data, reason: voteNum})
         console.log('and the data is ' + {...data})
     }
+
 
 return (
     <div>
@@ -61,10 +90,19 @@ return (
     <Row>
     <button 
         id="btn" 
-        onClick={handleButtonClick}>
+        onClick={didTheyMakeASelection}>
         FINISH
     </button>
     </Row>
+    <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+          <Box sx={style}>
+            <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
+            <img src={forgot} alt='forgot gif'></img>
+            <br/>
+            <button id="btn" onClick={handleModalClose}>CLOSE</button>
+          </Box>
+        </Modal>
+
     </div>
     )
 }

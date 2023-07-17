@@ -6,7 +6,6 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import NameGif from '../images/whatname.gif'
-import { cyan } from '@mui/material/colors'
 
 function Name({ handleButtonClick, data, setData }){
     const theme = createTheme({
@@ -60,14 +59,6 @@ function Name({ handleButtonClick, data, setData }){
       //DEPOSIT FIRST AND LAST NAME
       const firstNameField = nameValues.firstName;
       const lastNameField = nameValues.lastName;
-
-      // const nameDeposit = () => {
-      //   console.log('nameDeposit detects first is ' + firstNameField + ' second is ' + lastNameField)
-      //   // setData({firstName: firstNameField, lastName: lastNameField })
-      //   setData({firstName: firstNameField, lastName: lastNameField })
-      //   console.log('do you see this?')
-      //   console.log(data)
-      // }
 
       //CHECK FIELDS TO SEE IF EMPTY
       const firstNameEmpty = nameValues.firstName === ''
@@ -136,7 +127,7 @@ function Name({ handleButtonClick, data, setData }){
         <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2"> You have to enter both your first and last name before continuing </Typography>
-            <img src={NameGif}></img>
+            <img src={NameGif} alt='forgot gif'></img>
             <br/>
             <button id="btn" onClick={handleModalClose}>CLOSE</button>
           </Box>

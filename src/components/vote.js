@@ -1,17 +1,10 @@
-import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
-import Dialog from '@mui/material/Dialog';
-import DialogActions from '@mui/material/DialogActions';
-import DialogContent from '@mui/material/DialogContent';
-import DialogContentText from '@mui/material/DialogContentText';
-import Button from '@mui/material/Button';
-import {useState, useEffect} from 'react'
-import LinearProgress from '@mui/material/LinearProgress';
+import {useState} from 'react'
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import forgot from '../images/forgot.gif'
+import forgot from '../images/forgotsomething.gif'
 
 function Vote({ handleButtonClick, data, setData }){
 
@@ -20,14 +13,8 @@ function Vote({ handleButtonClick, data, setData }){
   const [disabled, setDisabled] = useState(false);
   const [wasPushed, setWasPushed] = useState(false);
 
-  //CHANGE STATE IF BUTTON WAS PUSHED
-  const buttonPushed = () => {
-    setWasPushed(true);
-  }
-
   //MODAL STATE AND OPEN/CLOSE FUNCTIONS
   const [openModal, setmodalOpen] = useState(false);
-  const handleModalOpen = () => setmodalOpen(true);
   const handleModalClose = () => setmodalOpen(false);
 
   const style = {
@@ -46,100 +33,48 @@ function Vote({ handleButtonClick, data, setData }){
   //OPEN DIALOG
   const handleClickOpen = () => {
     setOpen(true);
-    setDisabled(true);
   };
 
-  //CLOSE DIALOG
-  const handleClose = () => {
-    setOpen(false);
-  };
-
-  //DIALOG TIME OUT MAYBE NOT NEEDED
-  const [seconds, setSeconds] = useState(0);
-    
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setSeconds(seconds => seconds + 1);
-    }, 100);
-  }, []);
-
-  //CHECK IF BUTTON PUSHED
-  const didTheyPushTheButton = (gender) => {
-    // if (wasPushed === false) {
-    //   handleModalOpen();
-    // } else {
-    //   console.log('you are here cunt')
-    // }}
-    switch(wasPushed) {
-      case 'false': 
-      return handleModalOpen()
-      case 'true': 
-      return console.log('hi')
-    default: 
-    return 
+  //CHECK IF BUTTON WAS PUSHED
+  function didTheyPushTheButton() {
+    if (wasPushed === true) {
+      handleButtonClick()
+    } else {
+      console.log(wasPushed)
+      console.log('hi')
+      setmodalOpen(true)
+    }
   }
-  }
-  
-
-
-  //   } else if (wasPushed === true) {
-  //     if (gender === 'girl') {
-  //       console.log('Girl Vote')
-  //       // setData({...data, vote: 'Girl'})
-  //       // handleClickOpen()
-  //       // setTimeout(() => handleClose(), 4000)
-  //     } else {
-  //         console.log('Boy Vote')
-  //     }
-  //     handleButtonClick();
-  //   } else {
-  //     console.log('ERROR: Something went wrong')
-  //   }
-  // }
-
 
   //LOG BOY VOTE
   function logVoteBoy() {
     console.log('Boy Vote')
-    buttonPushed()
+    setWasPushed(true)
     setData({...data, vote: 'Boy'})
     handleClickOpen()
-    setTimeout(() => handleClose(), 4000)
+    setDisabled(true);
     console.log(wasPushed)
   }
 
   //LOG GIRL VOTE
   function logVoteGirl() {
     console.log('Girl Vote')
+    setWasPushed(true)
     setData({...data, vote: 'Girl'})
     handleClickOpen()
-    setTimeout(() => handleClose(), 4000)
+    setDisabled(true);
+    console.log(wasPushed)
   }
 
     return (
         <div>
-          <Dialog  
-            open={open}
-            onClose={handleClose} aria-labelledby="alert-dialog-title" aria-describedby="alert-dialog-description">
-	          <DialogContent>
-		          <DialogContentText id="alert-dialog-description"> 
-              Thank you {data.firstName}! 
-              <br /> 
-              Your vote has been registered. 
-            </DialogContentText>
-		        <LinearProgress 
-              variant="determinate"
-              value={seconds} />
-	          </DialogContent>
-          </Dialog>
-
           <Row>
 	          <Col sm={12} md={6}>
 	            <button
                 id="boyBtn" 
                 className="genderBtn" 
                 disabled={disabled} 
-                onClick={didTheyPushTheButton('boy')}>
+                onClick={logVoteBoy}>
                 BOY
               </button>
 	          </Col>
@@ -148,14 +83,14 @@ function Vote({ handleButtonClick, data, setData }){
                 id="girlBtn" 
                 className="genderBtn"
                 disabled={disabled} 
-                onClick={didTheyPushTheButton('girl')}>
+                onClick={logVoteGirl}>
                 GIRL
               </button>
 	          </Col>
 	        <Row>
 		          <button 
                 id="btn" 
-                onClick={handleButtonClick}>
+                onClick={didTheyPushTheButton}>
                 NEXT 
               </button>
 	        </Row>
@@ -164,7 +99,7 @@ function Vote({ handleButtonClick, data, setData }){
           <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
-            <img src={forgot}></img>
+            <img src={forgot} alt='forgot gif'></img>
             <br/>
             <button id="btn" onClick={handleModalClose}>CLOSE</button>
           </Box>
