@@ -7,6 +7,7 @@ import Vote from './vote.js'
 import Name from './name.js'
 import Welcome from './welcome.js'
 import Why from './why.js'
+// import getNames from '../database/operations'
 
 function Main() {
     const components = [Welcome, Name, Vote, Why];
@@ -49,6 +50,7 @@ return(
     </p>
     </Row>
     <Divider />
+    <button onClick={getNames}>sara i love you</button>
     <Row>
     <Col>
     <ActiveComponent 
@@ -62,6 +64,5 @@ return(
 
     </div>
 )}
-
 
 export default Main

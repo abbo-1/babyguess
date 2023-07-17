@@ -6,7 +6,7 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
-import forgot from '../images/forgotsomething.gif'
+import forgotSomething from '../images/forgotsomething.gif'
 
 function Why({ handleButtonClick, data, setData }){
 
@@ -97,7 +97,7 @@ return (
     <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
             <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
-            <img src={forgot} alt='forgot gif'></img>
+            <img src={forgotSomething} alt='forgot gif'></img>
             <br/>
             <button id="btn" onClick={handleModalClose}>CLOSE</button>
           </Box>
