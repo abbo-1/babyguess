@@ -12,7 +12,7 @@ const getNames = async() => {
         console.log(error)
     }
 }
-
+ 
 const createVote = async(Name) => {
     try {
         let pool = await sql.connect(config);

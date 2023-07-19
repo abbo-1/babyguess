@@ -117,7 +117,7 @@ function Name({ handleButtonClick, data, setData }){
         </Row>
 
         <Row>
-        <button id="btn"  onClick={() => {
+        <button class="btn" onClick={() => {
           checkFieldsAndSendNames();
         }}>
         SUBMIT

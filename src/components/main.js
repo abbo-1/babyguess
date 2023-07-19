@@ -50,7 +50,7 @@ return(
     </p>
     </Row>
     <Divider />
-    <button onClick={getNames}>sara i love you</button>
+    {/* <button onClick={getNames}>sara i love you</button> */}
     <Row>
     <Col>
     <ActiveComponent 

@@ -89,7 +89,7 @@ function Vote({ handleButtonClick, data, setData }){
 	          </Col>
 	        <Row>
 		          <button 
-                id="btn" 
+                class="btn"
                 onClick={didTheyPushTheButton}>
                 NEXT 
               </button>

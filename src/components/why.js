@@ -89,7 +89,7 @@ return (
 
     <Row>
     <button 
-        id="btn" 
+        class="btn" 
         onClick={didTheyMakeASelection}>
         FINISH
     </button>
