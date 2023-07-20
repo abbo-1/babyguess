@@ -43,11 +43,13 @@ return(
     <div id="mainThing">
     <Container fluid>
     <Row>
+    {/* <div class="centerMe"> */}
     <p id="title">
     Baby Abbott:
     <br/>
     Girl or Boy?
     </p>
+    {/* </div> */}
     </Row>
     <Divider />
     {/* <button onClick={getNames}>sara i love you</button> */}

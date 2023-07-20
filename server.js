@@ -5,3 +5,7 @@ const cors = require('cors')
 databaseOperations.getNames().then(res => {
     console.log(res)
 })
+
+databaseOperations.getGraphVotes().then(res => {
+    console.log(res)
+})

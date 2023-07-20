@@ -24,7 +24,7 @@ function Why({ handleButtonClick, data, setData }){
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    borderRadius: '10%',
+    borderRadius: '3%',
     p: 4,
   };
 
@@ -43,9 +43,7 @@ function Why({ handleButtonClick, data, setData }){
         console.log('logReasonVote function found you selected option ' + voteNum)
         setWasSelected(true)
         setData({...data, reason: voteNum})
-        console.log('and the data is ' + {...data})
     }
-
 
 return (
     <div>
@@ -89,17 +87,19 @@ return (
 
     <Row>
     <button 
-        class="btn" 
+        className="btn" 
         onClick={didTheyMakeASelection}>
         FINISH
     </button>
     </Row>
     <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
+          <div className="centerMe">
             <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
             <img src={forgotSomething} alt='forgot gif'></img>
             <br/>
-            <button id="btn" onClick={handleModalClose}>CLOSE</button>
+            <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
+            </div>
           </Box>
         </Modal>
 

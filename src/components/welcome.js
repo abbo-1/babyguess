@@ -35,7 +35,7 @@ return(
     </Col>
     </Row>
     <Row>
-    <button class="btn" onClick={handleButtonClick}>VOTE
+    <button className="btn" onClick={handleButtonClick}>VOTE
     </button>
     </Row>
     </Container>

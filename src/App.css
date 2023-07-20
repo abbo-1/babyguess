@@ -2,7 +2,7 @@
 
 #title {
   text-align: center;
-  font-size: 60px;
+  font-size: 120%;
 }
 
 #mainThing {
@@ -23,9 +23,8 @@
 .wrapper {
   animation: scroll 70s linear infinite;
   background-image: url('../src/background/background1.png');
-  height: 100vh;
-  min-width: 360px;
-  width: 100vw;
+  min-height: 100vh;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -74,15 +73,12 @@
 .btn{
     width: 150px;
     height: 50px;
-    /* border: 2px black solid; */
     outline: none;
-    /* background: #6c44ef; */
     background: #e92121;
     color: #fff;
     font-size: 22px;
     border-radius: 40px;
     text-align: center;
-    /* box-shadow: 0 6px 20px -5px rgba(255, 117, 117, 0.4); */
     position: relative;
     margin-top: 15px;
     overflow: hidden;
@@ -93,12 +89,41 @@
 }
 
 .btn:hover {
-  /* outline: 4px solid #957de5;
-  background: #957de5; */
   outline: 4px solid #c86868; 
   background: #c35656;
   outline-offset: 3px;
   color: #fff;
+}
+
+.modalbtn{
+  font-family: 'Patua One';
+  width: 100px;
+  height: 35px;
+  outline: none;
+  background: #e92121;
+  color: #fff;
+  border: none;
+  font-size: 17px;
+  border-radius: 40px;
+  text-align: center;
+  position: relative;
+  margin-top: 15px;
+  overflow: hidden;
+  cursor: pointer;
+  display: block;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.modalbtn:hover {
+  outline: 4px solid #c86868; 
+  background: #c35656;
+  outline-offset: 2px;
+  color: #fff;
+}
+
+.centerMe{
+  text-align: center;
 }
 
 #enterName{

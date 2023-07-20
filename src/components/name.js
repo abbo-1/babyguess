@@ -48,7 +48,7 @@ function Name({ handleButtonClick, data, setData }){
         top: '50%',
         left: '50%',
         transform: 'translate(-50%, -50%)',
-        width: 400,
+        width: 500,
         bgcolor: 'background.paper',
         border: '2px solid #000',
         boxShadow: 24,
@@ -117,7 +117,7 @@ function Name({ handleButtonClick, data, setData }){
         </Row>
 
         <Row>
-        <button class="btn" onClick={() => {
+        <button className="btn" onClick={() => {
           checkFieldsAndSendNames();
         }}>
         SUBMIT
@@ -126,10 +126,12 @@ function Name({ handleButtonClick, data, setData }){
 
         <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
+          <div className="centerMe">
             <Typography id="modal-modal-title" variant="h6" component="h2"> You have to enter both your first and last name before continuing </Typography>
             <img src={NameGif} alt='forgot gif'></img>
             <br/>
-            <button id="btn" onClick={handleModalClose}>CLOSE</button>
+            <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
+          </div>
           </Box>
         </Modal>
 
