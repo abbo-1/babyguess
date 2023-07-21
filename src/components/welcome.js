@@ -5,6 +5,20 @@ import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 
 function Welcome({handleButtonClick}) {
 
+  const getReason = async () => {
+    const newData = await fetch('http://localhost:4000/hello', {
+      method: 'GET',
+      headers: {
+        "content-type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify( recordsets )
+    })
+    .then(res => res.json())
+    console.log('looking for me' + JSON.stringify({newData}));
+  }
+
+
     const data01 = [
         { name: 'Group A', value: 400 },
         { name: 'Group B', value: 300 },

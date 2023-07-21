@@ -8,7 +8,7 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import forgotSomething from '../images/forgotsomething.gif'
 
-// const databaseOperations = require('../database/operations')
+
 
 function Why({ handleButtonClick, data, setData }){
 
@@ -46,22 +46,20 @@ function Why({ handleButtonClick, data, setData }){
       console.log('logReasonVote function found you selected option ' + voteNum)
       setWasSelected(true)
       setData({...data, reason: voteNum})
-      // databaseOperations.createVote(data)
   }
 
+  //SENT VOTE TO DATABASE
   const createEntry = async () => {
-    const newData = await fetch('/hello', {
+    const newData = await fetch('http://localhost:4000/hello', {
       method: 'POST',
-      // headers: {
-      //   'Content Type': 'application/json',
-      //   'Accept': 'application/json'
-      // },
-      body: JSON.stringify({
-        ...data
-      })
+      headers: {
+        "content-type": "application/json",
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify( data )
     })
     .then(res => res.json())
-    console.log(newData);
+    console.log('looking for me' + JSON.stringify({newData}));
   }
 
 return (
@@ -94,7 +92,7 @@ return (
         value="did" 
         control={<Radio />} 
         onChange= {() => logReasonVote(4)}
-        label="Something Kevin/Sara said, did, or bought" 
+        label="Something the parents said, did, or bought" 
     />
     <FormControlLabel 
         value="other" 

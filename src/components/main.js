@@ -26,44 +26,13 @@ function Main() {
       reason:'',
     })
 
-    const fetchData = async () => {
-      const newData = await fetch('/api', {
-      method: 'POST',
-      headers: {
-        'Content Type': 'application/json',
-        'Accept': 'application/json'
-      },
-      body: JSON.stringify({
-        Name: Name.firstName
-      })
-    })
-    .then(res => res.json())
-    console.log(newData);
-  }
-
-//   const createEntry = async () => {
-//     const newData = await fetch('/api', {
-//     method: 'POST',
-//     headers: {
-//       'Content Type': 'application/json',
-//       'Accept': 'application/json'
-//     },
-//     body: JSON.stringify({
-//       ...data
-//     })
-//   })
-//   .then(res => res.json())
-//   console.log(newData);
-// }
-
-
 return(
     <div id="mainThing">
     <Container fluid>
     <Row>
     {/* <div class="centerMe"> */}
     <p id="title">
-    Baby Abbott:
+    Baby:
     <br/>
     Girl or Boy?
     </p>

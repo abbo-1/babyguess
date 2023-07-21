@@ -1,10 +1,11 @@
 const config = require('./config')
-const sql = require('mssql')
+const sql = require('mssql');
+const { json } = require('express');
 
 const getNames = async() => {
     try {
         let pool = await sql.connect(config);
-        let names = await pool.request().query('SELECT FirstName, LastName from babyvote')
+        let names = await pool.request().query('SELECT * from babyvote')
         console.log(names)
         return names
     }
@@ -16,22 +17,21 @@ const getNames = async() => {
 const getGraphVotes = async() => {
     try {
         let pool = await sql.connect(config);
-        let names = await pool.request().query('SELECT BGVote, Reason from babyvote')
-        console.log(names)
-        return names
+        let votes = await pool.request().query('SELECT BGVote from babyvote')
+        console.log(votes)
+        return votes
     }
     catch(error) {
         console.log(error)
     }
 }
 
-const createVote = async(Name) => {
+const createVote = async(data) => {
     try {
         let pool = await sql.connect(config);
-        let names = await pool.request().query(`INSERT INTO babyvote VALUES 
-        '${Name.FirstName}', '${Name.LastName}', '${Name.BGVote}', ${Name.Reason})
-        `)
-        console.log(names);
+        let names = await pool.request().query(`INSERT INTO babyvote (FirstName, LastName, BGVote, Reason)  VALUES (
+        '${data.firstName}', '${data.lastName}', '${data.vote}', '${data.reason}')`)
+        console.log('do you see first name as ' + JSON.stringify({names}));
         return names;
     }
     catch(error) {
