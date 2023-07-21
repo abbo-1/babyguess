@@ -4,7 +4,7 @@ const sql = require('mssql')
 const getNames = async() => {
     try {
         let pool = await sql.connect(config);
-        let names = pool.request().query('SELECT FirstName, LastName from babyvote')
+        let names = await pool.request().query('SELECT FirstName, LastName from babyvote')
         console.log(names)
         return names
     }
@@ -16,7 +16,7 @@ const getNames = async() => {
 const getGraphVotes = async() => {
     try {
         let pool = await sql.connect(config);
-        let names = pool.request().query('SELECT BGVote, Reason from babyvote')
+        let names = await pool.request().query('SELECT BGVote, Reason from babyvote')
         console.log(names)
         return names
     }
@@ -28,8 +28,8 @@ const getGraphVotes = async() => {
 const createVote = async(Name) => {
     try {
         let pool = await sql.connect(config);
-        let names = pool.request().query(`INSERT INTO babyvote VALUES 
-        (${Name.ID}, '${Name.FirstName}', '${Name.LastName}', '${Name.BGVote}', ${Name.Reason})
+        let names = await pool.request().query(`INSERT INTO babyvote VALUES 
+        '${Name.FirstName}', '${Name.LastName}', '${Name.BGVote}', ${Name.Reason})
         `)
         console.log(names);
         return names;

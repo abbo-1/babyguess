@@ -7,7 +7,6 @@ import Vote from './vote.js'
 import Name from './name.js'
 import Welcome from './welcome.js'
 import Why from './why.js'
-// import getNames from '../database/operations'
 
 function Main() {
     const components = [Welcome, Name, Vote, Why];
@@ -27,17 +26,36 @@ function Main() {
       reason:'',
     })
 
-  //   const fetchData = async () => {
-  //     const newData = fetch('/hello', {
-  //     method: 'GET',
-  //     headers: {
-  //       'butter'
-  //     }
-  //   })
-  //   .then(res => res.json())
-  //   console.log(newData);
-  //   setReturnedData()
-  // }
+    const fetchData = async () => {
+      const newData = await fetch('/api', {
+      method: 'POST',
+      headers: {
+        'Content Type': 'application/json',
+        'Accept': 'application/json'
+      },
+      body: JSON.stringify({
+        Name: Name.firstName
+      })
+    })
+    .then(res => res.json())
+    console.log(newData);
+  }
+
+//   const createEntry = async () => {
+//     const newData = await fetch('/api', {
+//     method: 'POST',
+//     headers: {
+//       'Content Type': 'application/json',
+//       'Accept': 'application/json'
+//     },
+//     body: JSON.stringify({
+//       ...data
+//     })
+//   })
+//   .then(res => res.json())
+//   console.log(newData);
+// }
+
 
 return(
     <div id="mainThing">
@@ -52,7 +70,6 @@ return(
     {/* </div> */}
     </Row>
     <Divider />
-    {/* <button onClick={getNames}>sara i love you</button> */}
     <Row>
     <Col>
     <ActiveComponent 

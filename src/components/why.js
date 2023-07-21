@@ -8,6 +8,8 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import forgotSomething from '../images/forgotsomething.gif'
 
+// const databaseOperations = require('../database/operations')
+
 function Why({ handleButtonClick, data, setData }){
 
     //MODAL STATE AND OPEN/CLOSE FUNCTIONS
@@ -31,6 +33,7 @@ function Why({ handleButtonClick, data, setData }){
   //CHECK IF BUTTON WAS PUSHED
   function didTheyMakeASelection() {
     if (wasSelected === true) {
+      createEntry()
       handleButtonClick()
     } else {
       console.log(wasSelected)
@@ -39,11 +42,27 @@ function Why({ handleButtonClick, data, setData }){
     }
   }
   
-    function logReasonVote(voteNum) {
-        console.log('logReasonVote function found you selected option ' + voteNum)
-        setWasSelected(true)
-        setData({...data, reason: voteNum})
-    }
+  function logReasonVote(voteNum) {
+      console.log('logReasonVote function found you selected option ' + voteNum)
+      setWasSelected(true)
+      setData({...data, reason: voteNum})
+      // databaseOperations.createVote(data)
+  }
+
+  const createEntry = async () => {
+    const newData = await fetch('/hello', {
+      method: 'POST',
+      // headers: {
+      //   'Content Type': 'application/json',
+      //   'Accept': 'application/json'
+      // },
+      body: JSON.stringify({
+        ...data
+      })
+    })
+    .then(res => res.json())
+    console.log(newData);
+  }
 
 return (
     <div>
