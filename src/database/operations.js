@@ -18,8 +18,9 @@ const getGraphVotes = async() => {
     try {
         let pool = await sql.connect(config);
         let votes = await pool.request().query('SELECT BGVote from babyvote')
-        console.log(votes)
-        return votes
+        console.log('gtsnk:', votes.recordset);
+    
+        return votes.recordset;
     }
     catch(error) {
         console.log(error)
@@ -31,7 +32,6 @@ const createVote = async(data) => {
         let pool = await sql.connect(config);
         let names = await pool.request().query(`INSERT INTO babyvote (FirstName, LastName, BGVote, Reason)  VALUES (
         '${data.firstName}', '${data.lastName}', '${data.vote}', '${data.reason}')`)
-        console.log('do you see first name as ' + JSON.stringify({names}));
         return names;
     }
     catch(error) {

@@ -28,16 +28,14 @@ function Main() {
 
 return(
     <div id="mainThing">
-    <Container fluid>
-    <Row>
+    <Container>
     {/* <div class="centerMe"> */}
     <p id="title">
-    Baby:
+    Baby Abbott:
     <br/>
     Girl or Boy?
     </p>
     {/* </div> */}
-    </Row>
     <Divider />
     <Row>
     <Col>

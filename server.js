@@ -15,16 +15,21 @@ app.use(cors())
 //     res.send({result})
 // })
 
-app.get('/api', (req, res) => {
-    await databaseOperations.getGraphVotes(req.body)
-})
+app.get('/api', async (req, res) => {
+    const result = await databaseOperations.getGraphVotes();
+  
+     res.send(result)
+
+});
+
+// app.post('/api', async(req, res) => {
+//     console.log("REQw: ", req.body)
+//     await databaseOperations.getGraphVotes(res => {res.send(result.recordset)
+// })
 
 app.post('/hello', async(req, res) => {
     console.log("REQ: ", req.body)
     await databaseOperations.createVote(req.body)
-    // const result = await databaseOperations.createVote(req.body.name);
-    // console.log('do you SEE ME NOW' +  JSON.stringify(result))
-    // res.send(result.recordset)
 })
 
 // databaseOperations.getGraphVotes().then(res => {
