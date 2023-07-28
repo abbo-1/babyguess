@@ -181,6 +181,10 @@ user-select: none; /* Standard */
   border-radius: 20px;
 }
 
+#pie {
+  font-size: 30px;
+}
+
 h2 {
   color: white;
   margin: 0;

@@ -36,15 +36,15 @@ function Vote({ handleButtonClick, data, setData }){
   };
 
   //CHECK IF BUTTON WAS PUSHED
-  function didTheyPushTheButton() {
-    if (wasPushed === true) {
-      handleButtonClick()
-    } else {
-      console.log(wasPushed)
-      console.log('hi')
-      setmodalOpen(true)
-    }
-  }
+  // function didTheyPushTheButton() {
+  //   if (wasPushed === true) {
+  //     handleButtonClick()
+  //   } else {
+  //     console.log(wasPushed)
+  //     console.log('hi')
+  //     setmodalOpen(true)
+  //   }
+  // }
 
   //LOG BOY VOTE
   function logVoteBoy() {
@@ -54,6 +54,7 @@ function Vote({ handleButtonClick, data, setData }){
     handleClickOpen()
     setDisabled(true);
     console.log(wasPushed)
+    handleButtonClick()
   }
 
   //LOG GIRL VOTE
@@ -64,6 +65,7 @@ function Vote({ handleButtonClick, data, setData }){
     handleClickOpen()
     setDisabled(true);
     console.log(wasPushed)
+    handleButtonClick()
   }
 
     return (
@@ -89,13 +91,13 @@ function Vote({ handleButtonClick, data, setData }){
 	          </Col>
             </Row>  
 
-	        <Row>
+	        {/* <Row>
 		          <button 
                 className="btn"
                 onClick={didTheyPushTheButton}>
                 NEXT 
               </button>
-	        </Row>
+	        </Row> */}
   
 
           <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
