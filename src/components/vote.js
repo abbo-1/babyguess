@@ -90,14 +90,17 @@ function Vote({ handleButtonClick, data, setData }){
               </button>
 	          </Col>
             </Row>  
-
-	        {/* <Row>
-		          <button 
+          <br/>
+	        <Row>
+		          {/* <button 
                 className="btn"
                 onClick={didTheyPushTheButton}>
                 NEXT 
-              </button>
-	        </Row> */}
+              </button> */}
+              <div className="numbers">
+              2 of 3
+              </div>
+	       </Row>
   
 
           <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">

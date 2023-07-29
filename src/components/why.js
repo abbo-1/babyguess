@@ -103,6 +103,9 @@ return (
     </RadioGroup>
 
     <Row>
+    <div className="numbers">
+        3 of 3
+    </div>
     <button 
         className="btn" 
         onClick={didTheyMakeASelection}>

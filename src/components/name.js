@@ -117,6 +117,9 @@ function Name({ handleButtonClick, data, setData }){
         </Row>
 
         <Row>
+        <div className="numbers">
+        1 of 3
+        </div>
         <button className="btn" onClick={() => {
           checkFieldsAndSendNames();
         }}>
@@ -127,7 +130,7 @@ function Name({ handleButtonClick, data, setData }){
         <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
           <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6" component="h2"> You have to enter both your first and last name before continuing </Typography>
+            <Typography id="modal-modal-title" variant="h6"> You have to enter both your first and last name before continuing </Typography>
             <img src={NameGif} alt='forgot gif'></img>
             <br/>
             <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>

@@ -1,8 +1,8 @@
 import Container from 'react-bootstrap/Container';
 import Col from 'react-bootstrap/Col'
 import Row from 'react-bootstrap/Row';
-import { PieChart, Pie, Legend, Tooltip, ResponsiveContainer } from 'recharts';
 import {useState, useEffect} from 'react'
+import { Chart } from "react-google-charts";
 import forgotSomething from '../images/20220526_131656.jpg'
 
 function Welcome({handleButtonClick}) {
@@ -15,6 +15,8 @@ function Welcome({handleButtonClick}) {
   useEffect(()=> {
       getReason();
   }, [])
+
+  
 
   const getReason = async () => {
     const response = await fetch('http://localhost:4000/api');
@@ -29,27 +31,62 @@ function Welcome({handleButtonClick}) {
     
     setData(actualData);
 
+    
+  const { boysCount, girlsCount } = actualData.reduce(
+    (accumulator, vote) => {
+      if (vote.BGVote === "Boy ") {
+        return { ...accumulator, boysCount: accumulator.boysCount + 1 };
+      } else if (vote.BGVote === "Girl") {
+        return { ...accumulator, girlsCount: accumulator.girlsCount + 1 };
+      }
+      return accumulator;
+    },
+    { boysCount: 0, girlsCount: 0 }
+  );
+
+  // Update the state once with the total counts
+  setBoys(boysCount);
+  setGirls(girlsCount);
+
+
     // const stringifyData =  JSON.stringify({actualData})
 
-   actualData.forEach(vote=> {
-      if(vote.BGVote === "Boy ") {
-        setBoys(oldBoys => oldBoys + 1)
-      } if(vote.BGVote === "Girl") {
-        setGirls(oldGirls => oldGirls + 1)
-      }
-     })
+  //  actualData.forEach(vote=> {
+  //     if(vote.BGVote === "Boy ") {
+  //       setBoys(oldBoys => oldBoys + 1)
+  //     } if(vote.BGVote === "Girl") {
+  //       setGirls(oldGirls => oldGirls + 1)
+  //     }
+  //    })
   }
 
-  const girlsDivided = girls/2
-  const boysDivided = boys/2
+  // const girlsDivided = girls/2
+  // const boysDivided = boys/2
 
-  console.log(girlsDivided)
+  // console.log(girlsDivided)
 
-  const data01 = [
-    { name: 'Group A', value: girlsDivided },
-    { name: 'Group B', value: boysDivided },
+  const dataPie = [
+    ["Task", "Hours per Day"],
+    ["Boy Votes", boys],
+    ["Girl Votes", girls],
   ];
-
+  
+  const options = {
+    title: "Vote Results",
+    is3D: true,
+    colors: ['#fffc9b', '#cd9bff'],
+    pieSliceTextStyle: {
+      color: 'black' // Set the color of the text inside the pie chart slices to black
+    },
+    titleTextStyle: {
+      color: "black",               // color 'red' or '#cc00cc'
+      fontName: "Patua One",    // 'Times New Roman'
+      fontSize: 25,               // 12, 18
+      bold: true,                 // true or false
+      italic: true                // true of false
+  },
+  };
+  
 return(
     <div>
     <Container fluid>
@@ -62,31 +99,23 @@ return(
     </Row>
     </Col>
     <Col>
-    Results
-    {/* <ResponsiveContainer width="100%" height="100%"> */}
-    <div id="textBig">
+    {/* <div id="textBig">
     Boys Votes are {boys/2}
     <br/>
     Girl Votes are {girls/2}
     </div>
     <div id="font">
     If your results don't show properly please refresh the page.
-    </div>
+    </div> */}
     <div id="pie">
-    <PieChart width={400} height={400}>
-    <Pie
-            dataKey="value"
-            isAnimationActive={false}
-            data={data01}
-            cx="50%"
-            cy="50%"
-            outerRadius={80}
-            fill="#8884d8"
-            label
-          />
-        </PieChart>
-        </div>
-      {/* </ResponsiveContainer> */}
+    <Chart
+      chartType="PieChart"
+      data={dataPie}
+      options={options}
+      width={"100%"}
+      height={"400px"}
+    />
+    </div>
     </Col>
     </Row>
     <Row>
