@@ -32,6 +32,12 @@ app.post('/hello', async(req, res) => {
     await databaseOperations.createVote(req.body)
 })
 
+app.get('/api/checkName', async(req, res) => {
+    const result = await databaseOperations.getNames()
+    
+    res.send(result)
+  });
+
 // databaseOperations.getGraphVotes().then(res => {
 //     console.log(res.recordset)
 // })

@@ -16,8 +16,6 @@ function Welcome({handleButtonClick}) {
       getReason();
   }, [])
 
-  
-
   const getReason = async () => {
     const response = await fetch('http://localhost:4000/api');
     const actualData= await response.json();
@@ -47,23 +45,7 @@ function Welcome({handleButtonClick}) {
   // Update the state once with the total counts
   setBoys(boysCount);
   setGirls(girlsCount);
-
-
-    // const stringifyData =  JSON.stringify({actualData})
-
-  //  actualData.forEach(vote=> {
-  //     if(vote.BGVote === "Boy ") {
-  //       setBoys(oldBoys => oldBoys + 1)
-  //     } if(vote.BGVote === "Girl") {
-  //       setGirls(oldGirls => oldGirls + 1)
-  //     }
-  //    })
   }
-
-  // const girlsDivided = girls/2
-  // const boysDivided = boys/2
-
-  // console.log(girlsDivided)
 
   const dataPie = [
     ["Task", "Hours per Day"],
@@ -75,6 +57,7 @@ function Welcome({handleButtonClick}) {
     title: "Vote Results",
     is3D: true,
     colors: ['#fffc9b', '#cd9bff'],
+    legend : 'top',
     pieSliceTextStyle: {
       color: 'black' // Set the color of the text inside the pie chart slices to black
     },
@@ -99,23 +82,14 @@ return(
     </Row>
     </Col>
     <Col>
-    {/* <div id="textBig">
-    Boys Votes are {boys/2}
-    <br/>
-    Girl Votes are {girls/2}
-    </div>
-    <div id="font">
-    If your results don't show properly please refresh the page.
-    </div> */}
-    <div id="pie">
     <Chart
       chartType="PieChart"
       data={dataPie}
       options={options}
       width={"100%"}
-      height={"400px"}
+      height={"500px"}
     />
-    </div>
+    {/* </div> */}
     </Col>
     </Row>
     <Row>
