@@ -7,6 +7,7 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import NameGif from '../images/whatname.gif'
 import NoGif from '../images/no.gif'
+import Background from '../images/sketch.png'
 
 function Name({ handleButtonClick, data, setData }) {
   const theme = createTheme({
@@ -39,7 +40,7 @@ function Name({ handleButtonClick, data, setData }) {
   const [openNoModal, setNoModalOpen] = useState(false);
   const handleNoModalOpen = () => setNoModalOpen(true);
   const handleNoModalClose = () => setNoModalOpen(false);
-  
+
   const style = {
     position: 'fixed',
     top: '50%',
@@ -48,11 +49,11 @@ function Name({ handleButtonClick, data, setData }) {
     maxWidth: '90%',
     width: 'auto',
     maxHeight: '90vh',
-    bgcolor: 'background.paper',
+    background: `url(${Background})`,
     border: '2px solid #000',
     boxShadow: 24,
-    borderRadius: '10%',
-    p: 4,
+    borderRadius: '5%',
+    p: 4
   };
 
   const firstNameField = nameValues.firstName;
@@ -113,7 +114,7 @@ function Name({ handleButtonClick, data, setData }) {
 
   return (
         <ThemeProvider theme={theme}>
-           <Row id="center">
+           <Row className="centerMe">
              <div id="enterName">Please Enter Your Name</div>
            </Row>
 
@@ -163,10 +164,10 @@ function Name({ handleButtonClick, data, setData }) {
         </button>
       </Row>
 
-      <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+      <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description" className="modalOpenAnimation">
         <Box sx={style}>
           <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6">You have to enter both your first and last name before continuing</Typography>
+            <Typography id="modal-modal-title" className='modalTitle' variant="h6">You have to enter both your first and last name before continuing</Typography>
             <img src={NameGif} className='modalGif' alt='forgot gif' />
             <br />
             <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
@@ -177,7 +178,7 @@ function Name({ handleButtonClick, data, setData }) {
       <Modal open={openNoModal} onClose={handleNoModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6">You already voted!<br/>Nice try.</Typography>
+            <Typography id="modal-modal-title" className='modalTitle' variant="h6">You already voted!<br/>Nice try.</Typography>
             <img src={NoGif} className='modalGif' alt='no gif' />
             <br />
             <button className="modalbtn" onClick={handleNoModalClose}>CLOSE</button>

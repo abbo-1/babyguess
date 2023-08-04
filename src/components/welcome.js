@@ -74,12 +74,12 @@ function Welcome({ handleButtonClick }) {
             <Row>
               <div id="legend" className="chart-legend">
                 <Col className="legend-item">
-                  <div id="boyVoteSquare" className="vote-square" />
-                  <span className="legend-text">Boy Votes</span>
+                <div id="girlVoteSquare" className="vote-square" />
+                  <span className="legend-text">Girl Votes</span>
                 </Col>
                 <Col className="legend-item">
-                  <div id="girlVoteSquare" className="vote-square" />
-                  <span className="legend-text">Girl Votes</span>
+                <div id="boyVoteSquare" className="vote-square" />
+                  <span className="legend-text">Boy Votes</span>
                 </Col>
               </div>
             </Row>
