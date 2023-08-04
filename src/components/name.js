@@ -39,13 +39,15 @@ function Name({ handleButtonClick, data, setData }) {
   const [openNoModal, setNoModalOpen] = useState(false);
   const handleNoModalOpen = () => setNoModalOpen(true);
   const handleNoModalClose = () => setNoModalOpen(false);
-
+  
   const style = {
-    position: 'absolute',
+    position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 500,
+    maxWidth: '90%',
+    width: 'auto',
+    maxHeight: '90vh',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
@@ -165,7 +167,7 @@ function Name({ handleButtonClick, data, setData }) {
         <Box sx={style}>
           <div className="centerMe">
             <Typography id="modal-modal-title" variant="h6">You have to enter both your first and last name before continuing</Typography>
-            <img src={NameGif} alt='forgot gif' />
+            <img src={NameGif} className='modalGif' alt='forgot gif' />
             <br />
             <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
           </div>
@@ -175,8 +177,8 @@ function Name({ handleButtonClick, data, setData }) {
       <Modal open={openNoModal} onClose={handleNoModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
         <Box sx={style}>
           <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6">You already voted! Nice try.</Typography>
-            <img src={NoGif} alt='no gif' />
+            <Typography id="modal-modal-title" variant="h6">You already voted!<br/>Nice try.</Typography>
+            <img src={NoGif} className='modalGif' alt='no gif' />
             <br />
             <button className="modalbtn" onClick={handleNoModalClose}>CLOSE</button>
           </div>

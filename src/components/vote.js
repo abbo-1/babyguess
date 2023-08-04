@@ -13,23 +13,6 @@ function Vote({ handleButtonClick, data, setData }){
   const [disabled, setDisabled] = useState(false);
   const [wasPushed, setWasPushed] = useState(false);
 
-  //MODAL STATE AND OPEN/CLOSE FUNCTIONS
-  const [openModal, setmodalOpen] = useState(false);
-  const handleModalClose = () => setmodalOpen(false);
-
-  const style = {
-    position: 'absolute',
-    top: '50%',
-    left: '50%',
-    transform: 'translate(-50%, -50%)',
-    width: 600,
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
-    boxShadow: 24,
-    borderRadius: '3%',
-    p: 4,
-  };
-
   //OPEN DIALOG
   const handleClickOpen = () => {
     setOpen(true);
@@ -101,18 +84,6 @@ function Vote({ handleButtonClick, data, setData }){
               2 of 3
               </div>
 	       </Row>
-  
-
-          <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
-          <Box sx={style}>
-          <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
-            <img src={forgotSomething} alt='forgot gif'></img>
-            <br/>
-            <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
-            </div>
-          </Box>
-        </Modal>
         </div> 
         ) 
       }

@@ -18,15 +18,17 @@ function Why({ handleButtonClick, data, setData }){
   const [wasSelected, setWasSelected] = useState(false);
 
   const style = {
-    position: 'absolute',
+    position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
-    width: 600,
+    maxWidth: '90%',
+    width: 'auto',
+    maxHeight: '90vh',
     bgcolor: 'background.paper',
     border: '2px solid #000',
     boxShadow: 24,
-    borderRadius: '3%',
+    borderRadius: '10%',
     p: 4,
   };
 
@@ -116,7 +118,7 @@ return (
           <Box sx={style}>
           <div className="centerMe">
             <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
-            <img src={forgotSomething} alt='forgot gif'></img>
+            <img src={forgotSomething} className='modalGif' alt='forgot gif'></img>
             <br/>
             <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
             </div>

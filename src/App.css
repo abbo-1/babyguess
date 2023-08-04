@@ -1,15 +1,16 @@
+/* Fonts */
 @import url('https://fonts.googleapis.com/css?family=Patua+One&display=swap');
 
+/* Page title */
 #title {
   text-align: center;
   font-size: 120%;
 }
 
+/* Main container */
 #mainThing {
   margin: auto;
-  padding-left:2%;
-  padding-right:2%;
-  padding-bottom:2%;
+  padding: 2%;
   font-size: 0.6em;
   min-width: 100%;
   max-width: 100%;
@@ -19,8 +20,7 @@
   border-radius: 25px;
 }
 
-/*MOVING BACKGROUND*/
-
+/* Moving background */
 .wrapper {
   animation: scroll 70s linear infinite;
   background-image: url('../src/background/background1.png');
@@ -31,12 +31,11 @@
   align-items: center;
   perspective: 1000px;
   perspective-origin: 50% 50%;
-  
 }
 
 @keyframes scroll {
-   100%{
-    background-position:0px -3000px;
+  100% {
+    background-position: 0px -3000px;
   }
 }
 
@@ -52,7 +51,8 @@
   }
 }
 
-#main{
+/* Main content */
+#main {
   font-family: 'Patua One';
   font-size: 70px;
   text-align: center;
@@ -60,51 +60,21 @@
   border-radius: 25px;
   padding: 2%;
   border: 3px solid black;
-  min-width:85%;
+  min-width: 85%;
   max-width: 85%;
-  /* min-height:85%; */
+  margin: 20px 0;
   max-height: 85%;
 }
 
 #font {
-  font-size: 25px;
+  font-size: 30px;
 }
 
-/* BUTTON */
-.btn{
-    width: 150px;
-    height: 50px;
-    outline: none;
-    background: #e92121;
-    color: #fff;
-    font-size: 22px;
-    border-radius: 40px;
-    text-align: center;
-    position: relative;
-    margin-top: 15px;
-    overflow: hidden;
-    cursor: pointer;
-    display: block;
-    margin-left: auto;
-    margin-right: 0;
-}
-
-.btn:hover {
-  outline: 4px solid #c86868; 
-  background: #c35656;
-  outline-offset: 3px;
-  color: #fff;
-}
-
-.modalbtn{
-  font-family: 'Patua One';
-  width: 100px;
-  height: 35px;
+/* Buttons */
+.btn, .modalbtn {
   outline: none;
   background: #e92121;
   color: #fff;
-  border: none;
-  font-size: 17px;
   border-radius: 40px;
   text-align: center;
   position: relative;
@@ -114,39 +84,60 @@
   display: block;
   margin-left: auto;
   margin-right: 0;
+  font-family: 'Patua One';
 }
 
-.modalbtn:hover {
+.btn {
+  width: 150px;
+  height: 50px;
+  font-size: 22px;
+}
+
+.modalbtn {
+  width: 70px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.btn:hover, .modalbtn:hover {
   outline: 4px solid #c86868; 
   background: #c35656;
-  outline-offset: 2px;
+  outline-offset: 3px;
   color: #fff;
 }
 
-.centerMe{
+/* Center alignment */
+.centerMe {
   text-align: center;
 }
 
-#enterName{
+/* Modal GIF */
+.modalGif {
+  max-width: 100%;
+  height: 300px;
+  width: auto;
+}
+
+/* Warning text */
+#enterName {
   font-size: 1.5rem;
   color: red;
 }
 
-#space{
-  height:20px;
+/* Vertical spacing */
+#space {
+  height: 20px;
 }
 
-#center{
-  justify-content: center
-}
-
-.numbers{
+/* Number display */
+.numbers {
   font-size: 20px;
   position: absolute;
   bottom: 0;
   left: 0;
 }
 
+/* Gender buttons */
 .genderBtn {
   min-width: 100%;
   height: 300px;
@@ -162,16 +153,18 @@
   cursor: pointer;
   border: 3px black solid;
   -webkit-box-shadow: inset 3px 3px 20px #333;
-  -moz-box-shadow:    inset 3px 3px 20px #333;
-  box-shadow:         inset 3px 3px 20px #333;
+  -moz-box-shadow: inset 3px 3px 20px #333;
+  box-shadow: inset 3px 3px 20px #333;
 }
 
+/* Text style for big sections */
 #textBig {
   margin-top: 60px;
   text-align: center;
   font-size: 35px;
 }
 
+/* Section with background image */
 .module {
   background: 
     linear-gradient(
@@ -188,6 +181,7 @@
   border-radius: 20px;
 }
 
+/* Pie chart text size and style */
 #pie {
   font-size: 30px;
 }
@@ -198,6 +192,7 @@ h2 {
   padding: 20px;
 }
 
+/* Gender button hover styles */
 #girlBtn:hover {
   background: rgb(205, 155, 255);
 }
@@ -206,11 +201,17 @@ h2 {
   background: rgb(255, 252, 155);
 }
 
-.genderBtn:disabled {
-  pointer-events: none;
+/* Chart legend styles */
+.chart-legend {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-size: 30px;
 }
 
-.genderBtn:disabled:hover {
-  pointer-events: none;
-  background: none;
+.legend-item {
+  display: flex;
+  align-items: center;
+  flex: 1; 
 }
