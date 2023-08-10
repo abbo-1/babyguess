@@ -33,7 +33,9 @@ return(
     <p id="title">
     Baby Abbott:
     <br/>
+    <span id="lowerTitle">
     Girl or Boy?
+    </span>
     </p>
     {/* </div> */}
     <Divider />

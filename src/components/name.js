@@ -1,5 +1,6 @@
 import TextField from '@mui/material/TextField';
 import { ThemeProvider, createTheme } from "@mui/material/styles";
+import useMediaQuery from '@mui/material/useMediaQuery';
 import {useState, useEffect} from 'react'
 import Row from 'react-bootstrap/Row';
 import Typography from '@mui/material/Typography';
@@ -41,18 +42,21 @@ function Name({ handleButtonClick, data, setData }) {
   const handleNoModalOpen = () => setNoModalOpen(true);
   const handleNoModalClose = () => setNoModalOpen(false);
 
+  const smallScreen = window.innerWidth <= 1200;
+
   const style = {
     position: 'fixed',
     top: '50%',
     left: '50%',
     transform: 'translate(-50%, -50%)',
     maxWidth: '90%',
-    width: 'auto',
+    // width: 'auto',
+    width: smallScreen ? '100%' : 'auto',
     maxHeight: '90vh',
     background: `url(${Background})`,
-    border: '2px solid #000',
+    border: '4px solid black',
     boxShadow: 24,
-    borderRadius: '5%',
+    // borderRadius: '10%',
     p: 4
   };
 

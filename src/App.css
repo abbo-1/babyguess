@@ -2,10 +2,57 @@
 @import url('https://fonts.googleapis.com/css?family=Patua+One&display=swap');
 
 /* Page title */
-#title {
-  text-align: center;
+/* #title { */
+  /* text-align: center;
   font-size: 120%;
+  margin-top: -20px; */
+/* } */
+
+#title {
+	text-transform: uppercase;
+	letter-spacing: .3em;
+	display: inline-block;
+  text-align: center;
+	border-width: 4px 0;
+	/* padding: 1.5em 0em; */
+	/* position: absolute; */
+	top: 18%;
+	left: 50%;
+	width: 100%;
+	margin: 0 0 0 0;
 }
+#lowerTitle{
+  	font: 120% "Patua One", sans-serif;
+  	letter-spacing: 0;
+  	padding: .20em 0 .325em;
+	  display: block;
+	  margin: 0 auto;
+  	text-shadow: 0 0 80px rgba(255,255,255,.5); 
+}
+/* Clip Background Image */
+/* 
+	  background: url(https://i.ibb.co/RDTnNrT/animated-text-fill.png) repeat-y;
+	  -webkit-background-clip: text;
+	  background-clip: text; */
+
+/* Animate Background Image */
+/* 
+	  -webkit-text-fill-color: transparent;
+	  -webkit-animation: aitf 80s linear infinite; */
+
+/* Activate hardware acceleration for smoother animations */
+/* 
+	  -webkit-transform: translate3d(0,0,0);
+	  -webkit-backface-visibility: hidden;
+
+  } */
+
+/* Animate Background Image */
+
+/* @-webkit-keyframes aitf {
+	0% { background-position: 0% 50%; }
+	100% { background-position: 100% 50%; }
+} */
 
 /* Main container */
 #mainThing {
@@ -62,7 +109,7 @@
   border: 3px solid black;
   min-width: 85%;
   max-width: 85%;
-  margin: 20px 0;
+  /* margin: 20px 0; */
   max-height: 85%;
 }
 
@@ -107,7 +154,7 @@
 }
 
 .modalTitle{
-  color: white;
+  color: black;
   font-size: 30px !important;
 }
 
@@ -164,7 +211,7 @@
   box-shadow: inset 3px 3px 20px #333;
 }
 
-/* Text style for big sections */
+/* Text style */
 #textBig {
   margin-top: 60px;
   text-align: center;
@@ -180,14 +227,13 @@
     ),
     url(./images/20220526_131656.jpg);
   background-size: cover;
-  height: 384px;
-  width: 600px;
+  height: 45vh; /* 30% of the viewport height */
+  width: 100%; /* 50% of the parent element's width */
   margin-top: 70px;
   position: relative;
   float: left;
   border-radius: 20px;
 }
-
 /* Pie chart text size and style */
 #pie {
   font-size: 30px;
@@ -208,12 +254,26 @@ h2 {
   background-color: rgb(205, 155, 255);
 }
 
+.legend-text{
+  margin-left: 10px;
+}
+
+#girlTotal {
+  /* margin-left: auto; */
+  /* margin-left: 2px; */
+  margin-left: 2%
+}
+
+#boyTotal {
+  /* margin-right: auto; */
+}
+
 .vote-square {
   width: 35px;
   height: 35px;
   border: black 1px solid;
   border-radius: 30px;
-  margin-right: 10px;
+  /* margin-right: 10px; */
 }
 
 /* Gender button hover styles */
@@ -226,16 +286,31 @@ h2 {
 }
 
 /* Chart legend styles */
+#legend{
+  align-items: center;
+  display: flex;
+}
+
 .chart-legend {
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  font-size: 25px;
+  font-size: 25px; 
 }
 
 .legend-item {
   display: flex;
   align-items: center;
-  flex: 1; 
+}
+
+#titleChart {
+  font-size: 30px;
+}
+
+/* Chart styles */
+.chart-container {
+  padding: 0; /* Remove vertical padding */
+  margin-top: -80px; /* Adjust as needed */
+  margin-bottom: -80px; /* Adjust as needed */
 }

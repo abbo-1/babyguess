@@ -7,15 +7,18 @@ import Modal from '@mui/material/Modal';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import forgotSomething from '../images/forgotsomething.gif'
-
-
+import Background from '../images/sketch.png'
+import Thanks from '../images/thanks.gif'
 
 function Why({ handleButtonClick, data, setData }){
 
-    //MODAL STATE AND OPEN/CLOSE FUNCTIONS
+  //MODAL STATE AND OPEN/CLOSE FUNCTIONS
   const [openModal, setmodalOpen] = useState(false);
   const handleModalClose = () => setmodalOpen(false);
+  const [openThanksModal, setThanksModalOpen] = useState(false);
   const [wasSelected, setWasSelected] = useState(false);
+
+  const smallScreen = window.innerWidth <= 1000;
 
   const style = {
     position: 'fixed',
@@ -23,19 +26,32 @@ function Why({ handleButtonClick, data, setData }){
     left: '50%',
     transform: 'translate(-50%, -50%)',
     maxWidth: '90%',
-    width: 'auto',
+    // width: 'auto',
+    width: smallScreen ? '100%' : 'auto',
     maxHeight: '90vh',
-    bgcolor: 'background.paper',
-    border: '2px solid #000',
+    background: `url(${Background})`,
+    border: '4px solid black',
     boxShadow: 24,
-    borderRadius: '10%',
-    p: 4,
+    // borderRadius: '10%',
+    p: 4
   };
+
+
+  const handleThanksModalOpen = () => {
+    setThanksModalOpen(true);
+    setTimeout(() => {
+      setThanksModalOpen(false);
+    }, 7000);
+    handleButtonClick()
+  };
+
+  const handleThanksModalClose = () => setThanksModalOpen(false);
 
   //CHECK IF BUTTON WAS PUSHED
   function didTheyMakeASelection() {
     if (wasSelected === true) {
       createEntry()
+      // handleThanksModalOpen()
       handleButtonClick()
     } else {
       console.log(wasSelected)
@@ -117,7 +133,7 @@ return (
     <Modal open={openModal} onClose={handleModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
           <Box sx={style}>
           <div className="centerMe">
-            <Typography id="modal-modal-title" variant="h6" component="h2"> You didn't vote! </Typography>
+            <Typography id="modal-modal-title" className='modalTitle' variant="h6" component="h2"> You didn't vote! </Typography>
             <img src={forgotSomething} className='modalGif' alt='forgot gif'></img>
             <br/>
             <button className="modalbtn" onClick={handleModalClose}>CLOSE</button>
@@ -125,9 +141,17 @@ return (
           </Box>
         </Modal>
 
+        <Modal open={openThanksModal} onClose={handleThanksModalClose} aria-labelledby="modal-modal-title" aria-describedby="modal-modal-description">
+          <Box sx={style}>
+          <div className="centerMe">
+            <Typography id="modal-modal-title" className='modalTitle' variant="h6" component="h2"> Your vote has been registered! </Typography>
+            <img src={Thanks} className='modalGif' alt='forgot gif'></img>
+            </div>
+          </Box>
+        </Modal>
+
     </div>
     )
 }
-
 
 export default Why

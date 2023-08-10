@@ -53,7 +53,7 @@ function Welcome({ handleButtonClick }) {
       left: 0, // Set left to 0 for centering
       top: 20,
       width: '100%', // Use percentage for dynamic width
-      height: '230px',
+      height: '200px',
       bottom: 25,
     }
   };
@@ -72,23 +72,33 @@ function Welcome({ handleButtonClick }) {
           <Col>
             <div id="titleChart">Vote Results</div>
             <Row>
-              <div id="legend" className="chart-legend">
-                <Col className="legend-item">
+              {/* <div id="legend" className="chart-legend">
+                <Col className="legend-item text-right" id='girlTotal'>
                 <div id="girlVoteSquare" className="vote-square" />
-                  <span className="legend-text">Girl Votes</span>
+                <span className="legend-text">Girl Votes</span>
                 </Col>
-                <Col className="legend-item">
+                <Col className="legend-item text-left" id='boyTotal'>
                 <div id="boyVoteSquare" className="vote-square" />
-                  <span className="legend-text">Boy Votes</span>
+                <span className="legend-text">Boy Votes</span>
                 </Col>
-              </div>
+              </div> */}
+              <div id="legend" className="chart-legend">
+    <Col className="legend-item" id='girlTotal'>
+      <div id="girlVoteSquare" className="vote-square" />
+      <span className="legend-text">Girl Votes</span>
+    </Col>
+    <Col className="legend-item" id='boyTotal'>
+      <div id="boyVoteSquare" className="vote-square" />
+      <span className="legend-text">Boy Votes</span>
+    </Col>
+  </div>
             </Row>
             <Chart
               chartType="PieChart"
               data={dataPie}
               options={options}
               width={'100%'}
-              height={'400px'}
+              height={'350px'}
             />
           </Col>
         </Row>
