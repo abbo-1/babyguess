@@ -15,6 +15,7 @@ function Welcome({ handleButtonClick }) {
 
   const getReason = async () => {
     const response = await fetch('http://localhost:4000/api');
+    // const response = await fetch('https://babyguess.kevinjabbott.com:4000/api');
     const actualData = await response.json();
     setData(actualData);
 

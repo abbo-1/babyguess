@@ -68,6 +68,7 @@ function Name({ handleButtonClick, data, setData }) {
 
     const checkNameExists = async(firstName, lastName) => {
       const response = await fetch('http://localhost:4000/api/checkName');
+      // const response = await fetch('https://babyguess.kevinjabbott.com:4000/api/checkName');
       const actualData= await response.json();
       console.log(actualData)
       
